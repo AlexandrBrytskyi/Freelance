@@ -1,0 +1,32 @@
+api ref https://www.programmableweb.com/api/teletext
+
+для начала создаем мавен проект, и далее нужно сгенерировать клиентские классы для работы с SOAP
+java позволяет это сделать используя wsimport & wsdl
+но так как мы читали пример https://spring.io/guides/gs/consuming-web-service/ то тут легче использовать плагин
+добавляем в пом файл плагин
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.12.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaLanguage>WSDL</schemaLanguage>
+                                 <!--kuda generirovat`-->
+                    <generatePackage>app.soap_generated</generatePackage>
+                    <schemas>
+                        <schema>
+                            <!--nash server (endpoint s wsdl)-->
+                            <url>http://www.teletextapi.com/api.asmx?wsdl</url>
+                        </schema>
+                    </schemas>
+                </configuration>
+            </plugin>
+
+и запускаем плагин, он сгенерирует клиентские классы, они лежат сразу в таргете, поэтому их видно из сорс папки
+ далее все по примеру https://spring.io/guides/gs/consuming-web-service/

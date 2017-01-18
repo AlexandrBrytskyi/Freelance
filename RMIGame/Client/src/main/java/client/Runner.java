@@ -1,0 +1,11 @@
+package client;
+
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Runner {
+
+    public static void main(String[] args) {
+        new ClassPathXmlApplicationContext("context.xml");
+    }
+}

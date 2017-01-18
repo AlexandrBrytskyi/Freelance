@@ -1,0 +1,11 @@
+для классификации используем ресурс
+http://pevgen.blogspot.com/2011/01/rest-richardson-maturity-model.html
+
+- YouTube Data API - https://developers.google.com/youtube/v3/docs/#Subscriptions
+относим к Уровень 2 (HTTP-verbs(http-методы/глаголы)) потому что для операций с конкретным типом данных используются разные URI + для CRUD операций свои методы (гет, пост, пут)
+
+- Bit.ly links API - http://dev.bitly.com/links.html
+относим к Уровень 1 (Resources(Ресурсы)) так как, вроде бы есть разделение по типу операций, но используется тольео гет метод
+
+- GitHub pull requests API - https://developer.github.com/v3/pulls/
+относим к Уровень 3  для операций используются разные URI и методы + респонс содержит не только состояние(изменённое или неизменённое), но и ссылки(слоты) на то что мы можем делать дальше с этим сервисом
